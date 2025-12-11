@@ -3,7 +3,7 @@ import enum
 
 class Constants:
     MAX_IMAGE_SIZE = 10 * 1024 * 1024  # 10MB
-    IMAGE_CONTENT_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp", "image/gif"]
+    IMAGE_CONTENT_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"]
     SUPPORTED_PROTOCOLS = ['http', 'https']
     REQUEST_TIMEOUT = 10
 
@@ -38,7 +38,7 @@ class Constants:
         INVALID_PROTOCOL = "Invalid URL protocol. Only http:// and https:// URLs are supported"
         
         
-        UNSUPPORTED_IMAGE = "Unsupported image format. Please provide JPG, PNG, WEBP, or GIF images only"
+        UNSUPPORTED_IMAGE = "Unsupported image format. Please provide JPG, PNG, WEBP, JPEG images only"
         IMAGE_TOO_LARGE = "Image file is too large ({size_mb:.1f}MB). Maximum allowed size is 10MB"
         
         

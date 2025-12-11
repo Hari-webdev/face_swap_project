@@ -40,6 +40,8 @@ def upload_to_imgbb(image_path: str) -> str:
 @handle_errors
 def process_face_swap_job(reference_id: str):
     job = job_store[reference_id]
+    
+    # Update status to processing
     job["status"] = Constants.JobStatus.PROCESSING.value
     job["message"] = Constants.JobMessage.JOB_PROCESSING.value
     job_store[reference_id] = job
@@ -71,11 +73,16 @@ def process_face_swap_job(reference_id: str):
         else:
             raise Exception(f"Unexpected output type: {type(output)}")
 
+        
+        public_url = upload_to_imgbb(final_path)
+        result_url = public_url or f"/static/results/{reference_id}.jpg"
+        processing_time = int((time.time() - start) * 1000)
+        
+        
         job["status"] = Constants.JobStatus.COMPLETED.value
         job["message"] = Constants.JobMessage.JOB_COMPLETED.value
-        public_url = upload_to_imgbb(final_path)
-        job["result_image_url"] = public_url or f"/static/results/{reference_id}.jpg"
-        job["processing_ms"] = int((time.time() - start) * 1000)
+        job["result_image_url"] = result_url
+        job["processing_ms"] = processing_time
         job_store[reference_id] = job
 
     except Exception as e:
