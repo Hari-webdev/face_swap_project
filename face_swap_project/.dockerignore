@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+
+# Git
+.git/
+.gitignore
+
+# Generated files
+app/static/results/*.jpg
+app/static/results/*.png
+app/static/results/*.jpeg
+!app/static/results/.gitkeep
+
+# Job data
+app/job_store_data.json
+
+# Logs
+*.log
+logs/
+
+# Documentation
+README.md
+COST_ANALYSIS.md
+*.md
+
+# Tests
+tests/
+test_*.py
+*_test.py
